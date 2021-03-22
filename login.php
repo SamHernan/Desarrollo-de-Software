@@ -1,6 +1,6 @@
 <?php
 session_start();
-// Comprobamos si ya tiene una sesion jssjjsjs
+// Comprobamos si ya tiene una sesion sajkbaskjas :3
 # Si ya tiene una sesion redirigimos al contenido, para que no pueda volver acceder un usuario.
 //if (isset($_SESSION['usuario'])) {//usuario de la sesion
   //  header('Location: principal.php');
