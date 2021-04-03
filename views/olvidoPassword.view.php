@@ -56,6 +56,12 @@
                                                 <?php echo $errores; ?>
                                             </div>
                                        <?php endif; ?>
+                                       <?php if(!empty($exito)): ?>
+                                            <hr>
+                                            <div class="alert alert-success small text-center" role="alert">
+                                                <?php echo $exito; ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </form>
                                     <hr>
                                     <div class="text-center">

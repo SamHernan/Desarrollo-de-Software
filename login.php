@@ -1,11 +1,21 @@
 <?php
 session_start();
-// Comprobamos si ya tiene una sesion jssjjsjs
-# Si ya tiene una sesion redirigimos al contenido, para que no pueda volver acceder un usuario.
-//if (isset($_SESSION['usuario'])) {//usuario de la sesion
-  //  header('Location: principal.php');
-   // die();
-//}
+
+if (isset($_SESSION['rol'])) {
+	switch($_SESSION['rol']){
+		case 1:
+			header('location: admin.php'); // para admin
+		break;
+		case 2:
+			header('location: empleado.php'); // si es empleado
+		break;
+		case 3:
+			header('location: usuario.php'); // si es usuario
+		break;
+		default:
+	}
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Si todos los campos se han enviado, entonces, «$post» será «true»,
     // de lo contrario será «false»:
@@ -29,10 +39,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $statement->execute(array(':usuario' => $usuario,':clave' => $password));//array es un metodo
                 $resultado1 = $statement->fetch();// almacenar el resultado de la consultado
                 if($resultado1 !== false){//si los datos existen y son correctos
-                    $_SESSION['usuario'] = $usuario; //creo la sesion y lo mando a su pagina
+                    $tipo =3;
+                    $_SESSION['rol'] = $tipo; //creo la sesion y lo mando a su pagina
+                    $_SESSION['Nombre'] = $resultado1['Nombre'];
+                    $_SESSION['Taqui'] = $resultado1['Taqui_Puntos'];
                     header('location: usuario.php');
                 }else{
-                    $errores = '<li>¡Email y/o Password incorrectos!</li>';  
+                    $errores = '<li>¡Password incorrecta!</li>';  
                 }
             }else{
                 //si no existe el correo en cliente voy a trabajador
@@ -45,14 +58,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $resultado3 = $statement->fetch();
                     if($resultado3 !== false){// si existe ese email del trabajador checo que rol cumple
                         if($resultado3['Rol']=='admin'){// si su rol es admin, entonces ir a admin
-                            $_SESSION['usuario'] = $usuario;
+                            $tipo = 1;
+                            $_SESSION['rol'] = $tipo;
                             header('location: admin.php');
                         }else if($resultado3['Rol']== 'empleado'){//sino, si es empleado ir a empleado
-                            $_SESSION['usuario'] = $usuario;
+                            $tipo = 2;
+                            $_SESSION['rol'] = $tipo;
                             header('location: empleado.php');
                         }
                     }else{
-                        $errores = '<li>¡Email y/o Password incorrectos!</li>';  
+                        $errores = '<li>¡Password incorrecta!</li>';  
                     }
                 }else{// no existe el correo en trabajador ni en cliente
                     $errores= '<li>¡Usuario no existente!</li>'; 

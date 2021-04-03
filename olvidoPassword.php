@@ -1,6 +1,5 @@
 <?php 
 session_start();
-
 if(isset($_POST['correo'])){
     $post = (isset($_POST['correo']) && !empty($_POST['correo']));
     if($post){//si tengo un correo en el campo, si esta lleno
@@ -37,9 +36,7 @@ if(isset($_POST['correo'])){
                 $headers .= 'From: Taco UV<taco.uv.2021@gmail.com>' . "\r\n";
                 //ahora se envía el email usando la funcion mail() de PHP
                 @mail($email_to, $email_subject, $email_message, $headers);
-
-                echo "Te hemos enviado un email para cambiar tu contraseña";
-
+                $exito = '<li>¡Te hemos enviado un email para cambiar tu contraseña!</li>';
             }else{
                 // en esta parte vas a mostrar que el correo no existe, que introduzca un correo valido o registrado 
                 $errores = '<li>¡Por favor ingresa un correo valido!</li>';
@@ -47,7 +44,6 @@ if(isset($_POST['correo'])){
 
         }catch(PDOException $ex){
             $errores = '<li>¡Error: El servidor se encuentra en reparación. Intentelo mas tarde!</li>';
-    
         }
     }else{
         $errores = '<li>¡Por favor ingresa un correo!</li>';
