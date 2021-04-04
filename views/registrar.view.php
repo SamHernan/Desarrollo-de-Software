@@ -26,21 +26,27 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">¡Crea una Cuenta!</h1>
+                                <h1 class="h4 text-gray-900 mb-5">Crea tu cuenta</h1>
                             </div>
                             <form class="user" name="login" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" name="nombre"  placeholder="Nombre Completo">
+                                    <input type="text" class="form-control form-control-user" name="nombre"  placeholder="Nombre Completo" onkeypress="return permite(event, 'car')">
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user"  name="email"  placeholder="Correo Electronico">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6">
-                                        <input type="tel" class="form-control form-control-user" name="telefono" maxlength="10" placeholder="Telefono">
+                                        <input type="tel" class="form-control form-control-user" name="telefono" maxlength="10" placeholder="Telefono" onkeypress="return permite(event, 'num')">
                                     </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"  id ="password" name="password" placeholder="Contraseña">
+                                    </div>                            
+                                </div>
+                                <div class="form-group row">
+                                <div class="col-sm-6">
+                                    </div>                                    
+                                <div class="col-sm-6 mb-3 mb-sm-0" id="strengthMessage">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">Registrar Cuenta</button>
@@ -75,5 +81,14 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    <script src="js/validaciones.js"></script>
+
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
+    <script src="js/CheckPassword.js"></script>
+    <link href="css/CheckPassword.css" rel="stylesheet" />   
+
 </body>
 </html>

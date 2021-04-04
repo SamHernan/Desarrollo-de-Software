@@ -43,15 +43,25 @@
                                         <p class="mb-4">Lo entendemos, este tipo de cosas pasan. Simplemente ingrese su dirección de correo 
                                             electrónico, y a continuación le estaremos enviando un enlace para que pueda restablecer su contraseña.</p>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                id="exampleInputEmail" name="correo" aria-describedby="emailHelp"
                                                 placeholder="Introducir la Dirección de Correo Electrónico...">
                                         </div>
-                                        <a href="" class="btn btn-primary btn-user btn-block">
-                                            Restablecer Contraseña
-                                        </a>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Restablecer Contraseña</button>
+                                        <?php if(!empty($errores)): ?>
+                                            <hr>
+                                            <div class="alert alert-danger small text-center" role="alert">
+                                                <?php echo $errores; ?>
+                                            </div>
+                                       <?php endif; ?>
+                                       <?php if(!empty($exito)): ?>
+                                            <hr>
+                                            <div class="alert alert-success small text-center" role="alert">
+                                                <?php echo $exito; ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </form>
                                     <hr>
                                     <div class="text-center">

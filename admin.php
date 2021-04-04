@@ -1,10 +1,11 @@
 <?php 
 session_start();
-// Comprobamos tenga sesion, si no entonces redirigimos y MATAMOS LA EJECUCION DE LA PAGINA.
-if (isset($_SESSION['usuario'])) {
-	require 'views/admin.view.php';
-} else {
-	header('Location: login.php');
-	die();
+if(!isset($_SESSION['rol'])){
+	header('location: login.php');
+}else{
+	if($_SESSION['rol'] !=1){
+		header('location: login.php');
+	}
 }
+require 'views/admin.view.php'; 
 ?>
