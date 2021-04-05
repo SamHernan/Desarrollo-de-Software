@@ -77,7 +77,7 @@ if(!isset($_SESSION['rol'])){
                                 </button>
                                 <div class="logo">
                                     <a class="navbar-brand js-scroll-trigger logo-header" href="#">
-                                        <img src="images/logo.png" alt="">
+                                    <img src="images/logo.png" alt="" />
                                     </a>
                                 </div>
                             </div>
@@ -109,6 +109,7 @@ if(!isset($_SESSION['rol'])){
                 <div class="banner-static">
                     <div class="banner-text">
                         <div class="banner-cell">
+                            <br>
                             <h1>Dinner with us <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="Friends:Family:Officemates" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
                             <h2>Accidental appearances </h2>
                             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem nonummy nibh euismod</p>
