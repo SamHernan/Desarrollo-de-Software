@@ -1,14 +1,5 @@
 <?php
 session_start();
-<<<<<<< HEAD
-// Comprobamos si ya tiene una sesion sajkbaskjas :3
-# Si ya tiene una sesion redirigimos al contenido, para que no pueda volver acceder un usuario.
-//if (isset($_SESSION['usuario'])) {//usuario de la sesion
-  //  header('Location: principal.php');
-   // die();
-//}
-=======
-
 if (isset($_SESSION['rol'])) {
 	switch($_SESSION['rol']){
 		case 1:
@@ -24,7 +15,6 @@ if (isset($_SESSION['rol'])) {
 	}
 }
 
->>>>>>> 41b591a17ff705be44cc035383067eb53a79150a
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Si todos los campos se han enviado, entonces, «$post» será «true»,
     // de lo contrario será «false»:
