@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 # pero esto no asegura por completo la informacion encriptada.
                 $password = hash('sha512', $password);// # de la informacion
                 if($errores==''){//si no hay errores
-                    $statement = $conexion->prepare('INSERT INTO Cliente (Id, Email, Password, Nombre, Telefono, Taqui_Puntos) VALUES (null, :email, :password, :nombre, :telefono, 0)');
+                    $statement = $conexion->prepare('INSERT INTO Cliente (Id, Email, Password, Token, Nombre, Telefono, Taqui_Puntos) VALUES (null, :email, :password, null, :nombre, :telefono, 0)');
                     // Comprobamos si hay errores, sino entonces agregamos el usuario y redirigimos.
                     $statement->execute(array(
                         ':email' => $email,
