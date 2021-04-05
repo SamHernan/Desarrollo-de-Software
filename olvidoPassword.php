@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(isset($_SESSION['rol'])){
+	header('location: login.php');
+}
 if(isset($_POST['correo'])){
     $post = (isset($_POST['correo']) && !empty($_POST['correo']));
     if($post){//si tengo un correo en el campo, si esta lleno

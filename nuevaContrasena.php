@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION['rol'])){
+	header('location: login.php');
+}
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $obten_id = $_POST['id'];
     $obten_token = $_POST['token'];

@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(isset($_SESSION['rol'])){
+	header('location: login.php');
+}
 $errores='';
 if($_SERVER['REQUEST_METHOD']=='POST'){
 
