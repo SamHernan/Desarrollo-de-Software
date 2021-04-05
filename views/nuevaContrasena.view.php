@@ -2,6 +2,14 @@
 if(isset($_GET['id']) AND isset($_GET['token'])){
   $myId = $_GET['id'];
   $myToken = $_GET['token'];
+  echo 'mi id es: '.$myId;
+  echo ' mi token es: '.$myToken;
+}
+if(isset($_POST['id']) AND isset($_POST['token'])){
+  $myId = $_POST['id'];
+  $myToken = $_POST['token'];
+  echo 'mi id es: '.$myId;
+  echo ' mi token es: '.$myToken;
 }
 ?>
 

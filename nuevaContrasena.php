@@ -4,7 +4,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $obten_id = $_POST['id'];
     $obten_token = $_POST['token'];
     $post = (isset($_POST['contraseña1']) && !empty($_POST['contraseña1'])) &&
-    (isset($_POST['contraseña2']) && !empty($_POST['contraseña2']));
+    (isset($_POST['contraseña2']) && !empty($_POST['contraseña2'])) &&
+    (isset($_POST['id']) && !empty($_POST['id'])) && (isset($_POST['token']) && !empty($_POST['token']));
     if($post){//si estan llenos
         if($_POST["contraseña1"]== $_POST["contraseña2"]){
             # son iguales
