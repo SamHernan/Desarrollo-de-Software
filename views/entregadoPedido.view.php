@@ -317,7 +317,7 @@
         <div class="container">
     <br>
     
-    <h1 class="text-center">Lista de Pedidos Nuevos/Preparación</h1>
+    <h1 class="text-center">Lista de Pedidos Entregados</h1>
     <br>
     <div class="panel panel-default"> 
     <div class="panel-body"> 
@@ -341,7 +341,7 @@
             <td class="text-center"><?php echo "lista pendiente" ?></td>
             <td class="text-center"><?php echo $row['Fecha'] ?></td>
             <td class="text-center estatus"><?php echo $row['Status'] ?></td>
-            <td class="text-center"><button id="<?php echo $row['Id'] ?>" class="btn btn-info" data-toggle="modal" data-target="#exampleModal2"> <img src = "img/iconos/ojo.svg"></button></td>
+            <td class="text-center"><button id="detalles" type="button" class="btn btn-info"> <img src = "img/iconos/ojo.svg"></button></td>
             <td class="text-center"><button id="<?php echo $row['Id'] ?>" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal"> <img src = "img/iconos/pencil.svg"></button></td>
         </tr>
         <?php
@@ -349,27 +349,6 @@
         ?>
         </table>
     </div>
-
-    <div class="modal" id="exampleModal2" tabindex="1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                 <div class="modal-header">
-                    <h5 class="modal-title">Detalles del Pedido</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-                <div class="modal-body">
-                    <span>HOLAAAAAAAAAAAAAAAAAAAAAA </span> <span id="modalId"></span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar2</button>
-                    <button type="button"  id="RealizarCambios" class="btn btn-success">Realizar Cambios2</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
