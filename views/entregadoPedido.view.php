@@ -360,9 +360,9 @@
                 </button>
             </div>
                 <div class="modal-body">
-                    <span>El pedido con el Folio </span> <span id="modalId"></span>
-                    <span>se encuentra en Pedido </span> <span id="modalStatus"></span>
-                    <span>.¿Estás seguro de que quieres pasarlo a la siguiente etapa "Siguiente etapa"?</span> 
+                    <span>El pedido con el Folio </span> <span style="font-weight:bolder" id="modalId"></span>
+                    <span>se encuentra en la etapa " </span> <span style="font-weight:bolder" id="modalStatus"></span>
+                    <span>".¿Estás seguro de que quieres pasarlo a la siguiente etapa "Siguiente etapa"?</span> 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>

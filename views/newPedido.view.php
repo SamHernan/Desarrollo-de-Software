@@ -290,7 +290,7 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Pedidos<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="newPedido.php">Pedidos Nuevos/Preparación</a>
+                                <a href="newPedido.php">Pedidos Nuevos/ En Preparación</a>
                             </li>
                             <li>
                                 <a href="listoPedido.php">Pedidos Listos/Enviados</a>
@@ -317,7 +317,7 @@
         <div class="container">
     <br>
     
-    <h1 class="text-center">Lista de Pedidos Nuevos/Preparación</h1>
+    <h1 class="text-center">Lista de Pedidos Nuevos/ En Preparación</h1>
     <br>
     <div class="panel panel-default"> 
     <div class="panel-body"> 
@@ -360,11 +360,11 @@
                 </button>
             </div>
                 <div class="modal-body">
-                    <span>HOLAAAAAAAAAAAAAAAAAAAAAA </span> <span id="modalId"></span>
+                    <span>HOLAAAAAAAAAAAAAAAAAAAAAA </span> <span id="modalId2"></span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar2</button>
-                    <button type="button"  id="RealizarCambios" class="btn btn-success">Realizar Cambios2</button>
+                    <button type="button"  id="RealizarCambios2" class="btn btn-success">Realizar Cambios2</button>
                 </div>
             </div>
         </div>
@@ -375,19 +375,19 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                  <div class="modal-header">
-                    <h5 class="modal-title">Actualización de Estatus</h5>
+                    <h5 class="modal-title" style="font-weight:bolder">Actualización de Estatus</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
                 <div class="modal-body">
-                    <span>El pedido con el Folio </span> <span id="modalId"></span>
-                    <span>se encuentra en Pedido </span> <span id="modalStatus"></span>
-                    <span>.¿Estás seguro de que quieres pasarlo a la siguiente etapa "Siguiente etapa"?</span> 
+                    <span>El pedido con el Folio </span> <span style="font-weight:bolder" id="modalId"></span>
+                    <span>se encuentra en la etapa " </span> <span style="font-weight:bolder" id="modalStatus"></span>
+                    <span>".¿Estás seguro de que quieres pasarlo a la siguiente etapa "<span style="font-weight:bolder" id="modalStatusNew"></span>"?</span> 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <button type="button"  id="RealizarCambios" class="btn btn-success">Realizar Cambios</button>
+                    <button type="submit"  id="RealizarCambios" class="btn btn-success">Realizar Cambios</button>
                 </div>
             </div>
         </div>
@@ -397,16 +397,16 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                  <div class="modal-header">
-                    <h5 class="modal-title">Error modal</h5>
+                    <h5 class="modal-title" style="font-weight:bolder">Operación Fallida</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
                 <div class="modal-body">
-                    <span>Error</span>
+                    <span>La solicitud no pudo ser procesada.Inténtelo mas tarde</span>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" data-backdrop="false">Aceptar</button>
                 </div>
             </div>
         </div>
