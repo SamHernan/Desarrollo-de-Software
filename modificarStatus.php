@@ -8,14 +8,15 @@ if($post){
     $id = $_POST['id'];
     $status = $_POST['status'];
     $statusNew = $_POST['statusNew'];
-    echo $id;
-    echo $status;
-    echo $statusNew;
     try{
         $conexion = new PDO('mysql:host=localhost;dbname=bduv', 'root', ''); //conexio a bd
-        $statement = $conexion->prepare('UPDATE Pedido SET Status = :statusNew WHERE Id = :id');
+        $statement = $conexion->prepare('UPDATE Pedidos SET Status = :statusNew WHERE Id = :id');
         $statement->execute(array(':statusNew' => $statusNew,':id' => $id));    
-        echo "Estatus Actualizado";
+        if($statement->execute()){
+            echo 'Estatus Actualizado';
+        }else{
+            echo 'error';
+        }
     }catch(PDOException $ex){
         echo 'error';
         //echo "Error: {$ex->getMessage()}"; //interpolacion de variables 

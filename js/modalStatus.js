@@ -42,18 +42,35 @@ $("#RealizarCambios").click(function (event) {
     }).then(function (text){
         console.log(typeof text);
         var prueba = text.replace(/\s/g, '');
+        console.log(prueba);
         if(prueba === 'error'){
             $('#exampleModal').modal('hide'); 
+            $('#exampleModal').modal('hide'); 
+            if ($('.modal-backdrop').is(':visible')) {
+                $('div').removeClass('modal-open'); 
+                $('.modal-backdrop').remove(); 
+            };
             $('#errorModal').modal('show'); 
         }else{
             $('#exampleModal').modal('hide'); 
+            if ($('.modal-backdrop').is(':visible')) {
+                $('div').removeClass('modal-open'); 
+                $('.modal-backdrop').remove(); 
+                location.reload();
+            };
         }
     }).catch(function (error) {
         console.error(error);
     })
 })
 
-
+$("#Aceptar").click(function (event) {
+    $('#errorModal').modal('hide'); 
+    if ($('.modal-backdrop').is(':visible')) {
+        $('div').removeClass('modal-open'); 
+        $('.modal-backdrop').remove(); 
+    };
+})
 
 
 

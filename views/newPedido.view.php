@@ -406,7 +406,7 @@
                     <span>La solicitud no pudo ser procesada.Inténtelo mas tarde</span>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal" data-backdrop="false">Aceptar</button>
+                    <button type="submit" id="Aceptar" class="btn btn-primary">Aceptar</button>
                 </div>
             </div>
         </div>
