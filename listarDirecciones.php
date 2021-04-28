@@ -7,7 +7,6 @@ if(!isset($_SESSION['rol'])){
 		header('location: login.php');
 	}
 }
-
 try{
     $id = $_SESSION['Id'];
     $conexion = new PDO('mysql:host=localhost;dbname=bduv', 'root', ''); 
