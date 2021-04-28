@@ -1,5 +1,13 @@
 <?php
 session_start();
+if(!isset($_SESSION['rol'])){
+	header('location: login.php');
+}else{
+	if($_SESSION['rol'] !=3){
+		header('location: login.php');
+	}
+}
+
 try{
     $id = $_SESSION['Id'];
     $conexion = new PDO('mysql:host=localhost;dbname=bduv', 'root', ''); 
