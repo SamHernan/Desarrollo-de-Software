@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="empleado.php">
                     <img src="assets/img/logo.png" alt="" />
                 </a>
             </div>
@@ -284,7 +284,7 @@
                         <!--end search section-->
                     </li>
                     <li class="selected">
-                        <a href="index.html"><i class="fa fa-dashboard fa-fw"></i>Inicio</a>
+                        <a href="empleado.php"><i class="fa fa-dashboard fa-fw"></i>Inicio</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Pedidos<span class="fa arrow"></span></a>
@@ -314,32 +314,86 @@
         <!--  page-wrapper -->
         <div id="page-wrapper">
 
-            <div class="row">
-                <!-- Page Header -->
-                <div class="col-lg-12">
-                    <h1 class="page-header">Inicio</h1>
-                </div>
-                <!--End Page Header -->
-            </div>
+        <div class="container">
+    <br>
+    
+    <h1 class="text-center">Lista de Pedidos Entregados</h1>
+    <br>
+    <div class="panel panel-default"> 
+    <div class="panel-body"> 
+    <div class="table-responsive"> 
+    <table  class="table">
+        <thead>
+		    <tr>
+                <th class="table-dark text-center">Cliente</th>
+			    <th class="table-dark text-center">Folio</th>
+                <th class="table-dark text-center">Articulos</th>
+			    <th class="table-dark text-center">Fecha</th>
+			    <th class="table-dark text-center">Estatus</th>
+                <th class="table-dark text-center">Detalles del Pedido</th>
+                <th class="table-dark text-center">Modificar Estatus</th>
+		    </tr>
+	    </thead>
+        <?php foreach ($statement as $row){?> 
+        <tr>
+            <td class="text-center"><?php echo $row['Nombre'] ?></td>
+	        <td class="text-center"><?php echo $row['Id'] ?></td>
+            <td class="text-center"><?php echo "lista pendiente" ?></td>
+            <td class="text-center"><?php echo $row['Fecha'] ?></td>
+            <td class="text-center estatus"><?php echo $row['Status'] ?></td>
+            <td class="text-center"><button id="detalles" type="button" class="btn btn-info"> <img src = "img/iconos/ojo.svg"></button></td>
+            <td class="text-center"><button id="<?php echo $row['Id'] ?>" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal"> <img src = "img/iconos/pencil.svg"></button></td>
+        </tr>
+        <?php
+	        }
+        ?>
+        </table>
+    </div>
 
-            <div class="row">
-            <div class="card-box pd-20 height-100-p mb-30">
-					<div class="row align-items-center">
-						<div class="col-md-4">
-							<img src="vendors/img/empleadoIcon.png" alt="" width="300" height="300">
-						</div>
-						<div class="col-md-8">
-							<h1 class="font-20 weight-500 mb-10 text-capitalize">
-								Bienvenido de Nuevo <div class="weight-600 font-30 text-blue">Erwin</div>
-							</h1>
-							<p class="font-18 max-width-600">Estos apartados te termitirán tener un mejor control de los pedidos realizados
-                            por los clientes. También tendrás a dispocición herramientas para gestionar aquellos que ya esten preparados, listos y entregados. 
-                            Es muy fácil de utilizar y así podrás demostrar tus habilidades que ayudan a nuestra taquería a ser mejor cada día. 
-							</p>
-						</div>
-					</div>
-				</div>
-            </div>        
+    <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                 <div class="modal-header">
+                    <h5 class="modal-title">Actualización de Estatus</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <div class="modal-body">
+                    <span>El pedido con el Folio </span> <span style="font-weight:bolder" id="modalId"></span>
+                    <span>se encuentra en la etapa " </span> <span style="font-weight:bolder" id="modalStatus"></span>
+                    <span>".¿Estás seguro de que quieres pasarlo a la siguiente etapa "Siguiente etapa"?</span> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button"  id="RealizarCambios" class="btn btn-success">Realizar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="errorModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                 <div class="modal-header">
+                    <h5 class="modal-title">Error modal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <div class="modal-body">
+                    <span>Error</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+    </div>   
+    </div>   
+    </div>
+      
 
         </div>
         <!-- end page-wrapper -->
@@ -357,6 +411,10 @@
     <script src="assets/plugins/morris/raphael-2.1.0.min.js"></script>
     <script src="assets/plugins/morris/morris.js"></script>
     <script src="assets/scripts/dashboard-demo.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="../js/modalStatus.js"></script>
 
 </body>
 
