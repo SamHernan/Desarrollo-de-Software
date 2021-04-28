@@ -86,7 +86,8 @@ if(!isset($_SESSION['rol'])){
                                     <li class="active"><a href="#banner">Home</a></li>
                                     <li><a href="#menu">Menu</a></li>
                                     <li><a href="#footer">Hola <?php echo $_SESSION['Nombre'];?></a></li>
-                                    <li><a href="#footer">Tienes  <?php echo $_SESSION['Taqui'];?> Taqui-Puntos</a></li>
+                                    <li><a href="#footer"><?php echo $_SESSION['Taqui'];?> Taqui-Puntos</a></li>
+                                    <li><a href="listarDirecciones.php">Direcciones</a></li>
                                     <li><a href="logout.php">Cerrar Sesion</a></li>
                                 </ul>
                             </div>

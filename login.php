@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $statement->execute(array(':usuario' => $usuario));
             $resultado = $statement->fetch();
             if($resultado !== false){ // si existe el correo
-                $query = "SELECT * FROM Cliente WHERE Email = :usuario AND Password = :clave";
+                $query = "SELECT Nombre,Taqui_Puntos,Id FROM Cliente WHERE Email = :usuario AND Password = :clave";
                 $statement = $conexion->prepare($query); // aqui meto la consulta sql
                 $statement->execute(array(':usuario' => $usuario,':clave' => $password));//array es un metodo
                 $resultado1 = $statement->fetch();// almacenar el resultado de la consultado
@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $_SESSION['rol'] = $tipo; //creo la sesion y lo mando a su pagina
                     $_SESSION['Nombre'] = $resultado1['Nombre'];
                     $_SESSION['Taqui'] = $resultado1['Taqui_Puntos'];
+                    $_SESSION['Id'] = $resultado1['Id'];
                     header('location: index.php');
                 }else{
                     $errores = '<li>¡Password incorrecta!</li>';  
