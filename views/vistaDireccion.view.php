@@ -158,7 +158,7 @@ $id = $_SESSION['Id'];
                     <span style="font-weight:bolder">Actual: </span> <span id="muestroVi"></span>
                 </div>
                 <div class="col">
-                    <select id="tipoVialidad" class="form-control">
+                    <select id="tipoVialidad2" class="form-control">
                         <option value="">Selecciona una opción</option>
                         <option value="Calle">Calle</option>
                          <option value="Andador">Andador</option>

@@ -22,12 +22,19 @@ $("#guardarCambios").click(function (event) {
     console.log($(this).attr('id'));
 
     var id = $('#muestroId').html();
+    console.log(id);
     var postal = $('#coPos').val();
+    console.log(postal);
     var colonia = $('#col').val();
-    var vialidad = $('#tipoVialidad').val();
+    console.log(colonia);
+    var vialidad = $('#tipoVialidad2').val();
+    console.log(vialidad);
     var nombreVia = $('#nomVi').val();
+    console.log(nombreVia);
     var numE = $('#numEx').val();
+    console.log(numE);
     var numI = $('#numIn').val();
+    console.log(numI);
 
     var formData = new FormData();
     formData.append("id", id);
