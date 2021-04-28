@@ -10,7 +10,7 @@ if($post){
     $statusNew = $_POST['statusNew'];
     try{
         $conexion = new PDO('mysql:host=localhost;dbname=bduv', 'root', ''); //conexio a bd
-        $statement = $conexion->prepare('UPDATE Pedidos SET Status = :statusNew WHERE Id = :id');
+        $statement = $conexion->prepare('UPDATE Pedido SET Status = :statusNew WHERE Id = :id');
         $statement->execute(array(':statusNew' => $statusNew,':id' => $id));    
         if($statement->execute()){
             echo 'Estatus Actualizado';
