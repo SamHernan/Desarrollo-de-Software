@@ -327,10 +327,9 @@
 		    <tr>
                 <th class="table-dark text-center">Cliente</th>
 			    <th class="table-dark text-center">Folio</th>
-                <th class="table-dark text-center">Articulos</th>
 			    <th class="table-dark text-center">Fecha</th>
 			    <th class="table-dark text-center">Estatus</th>
-                <th class="table-dark text-center">Detalles del Pedido</th>
+                <th class="table-dark text-center">Ver Detalles</th>
                 <th class="table-dark text-center">Modificar Estatus</th>
 		    </tr>
 	    </thead>
@@ -338,7 +337,6 @@
         <tr>
             <td class="text-center"><?php echo $row['Nombre'] ?></td>
 	        <td class="text-center"><?php echo $row['Id'] ?></td>
-            <td class="text-center"><?php echo "lista pendiente" ?></td>
             <td class="text-center"><?php echo $row['Fecha'] ?></td>
             <td class="text-center estatus"><?php echo $row['Status'] ?></td>
             <td class="text-center"><button id="detalles" type="button" class="btn btn-info"> <img src = "img/iconos/ojo.svg"></button></td>

@@ -149,15 +149,8 @@ $id = $_SESSION['Id'];
                     <input type="text" id="col" class="form-control">
                 </div>
 
-
                 <div class="form-group">
                 <label for="">Tipo de Vialidad</label><br>
-                <div class="row">
-                <br>
-                <div class="col">
-                    <span style="font-weight:bolder">Actual: </span> <span id="muestroVi"></span>
-                </div>
-                <div class="col">
                     <select id="tipoVialidad2" class="form-control">
                         <option value="">Selecciona una opción</option>
                         <option value="Calle">Calle</option>
@@ -165,11 +158,7 @@ $id = $_SESSION['Id'];
                         <option value="Avenida">Avenida</option>
                         <option value="Privada">Privada</option>
                     </select>
-
                 </div>
-                </div>
-                </div>
-
                 <div class="form-group">
                     <label for="">Nombre de Vialidad</label>
                     <input type="text" id="nomVi" class="form-control">

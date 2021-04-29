@@ -11,7 +11,7 @@ $("tr>td>button").click(function (event) {
         $('#muestroId').html($(this).attr('id'));
         $('#coPos').attr('value', $fila.find('.postal').html());
         $('#col').attr('value', $fila.find('.colon').html());
-        $('#muestroVi').html($fila.find('.tiVi').html());
+        $('#tipoVialidad2').val($fila.find('.tiVi').html());
         $('#nomVi').attr('value', $fila.find('.naVia').html());
         $('#numEx').attr('value', $fila.find('.numeExt').html());
         $('#numIn').attr('value', $fila.find('.numeInt').html());

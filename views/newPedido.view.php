@@ -317,7 +317,7 @@
         <div class="container">
     <br>
     
-    <h1 class="text-center">Lista de Pedidos Nuevos/ En Preparación</h1>
+    <h1 class="text-center">Lista de Pedidos Nuevos/Preparación</h1>
     <br>
     <div class="panel panel-default"> 
     <div class="panel-body"> 
@@ -327,10 +327,9 @@
 		    <tr>
                 <th class="table-dark text-center">Cliente</th>
 			    <th class="table-dark text-center">Folio</th>
-                <th class="table-dark text-center">Articulos</th>
-			    <th class="table-dark text-center">Fecha</th>
-			    <th class="table-dark text-center">Estatus</th>
-                <th class="table-dark text-center">Detalles del Pedido</th>
+                <th class="table-dark text-center">Fecha</th>
+			    <th class="table-dark text-center">Status</th>
+			    <th class="table-dark text-center">Ver Detalles</th>
                 <th class="table-dark text-center">Modificar Estatus</th>
 		    </tr>
 	    </thead>
@@ -338,38 +337,50 @@
         <tr>
             <td class="text-center"><?php echo $row['Nombre'] ?></td>
 	        <td class="text-center"><?php echo $row['Id'] ?></td>
-            <td class="text-center"><?php echo "lista pendiente" ?></td>
             <td class="text-center"><?php echo $row['Fecha'] ?></td>
             <td class="text-center estatus"><?php echo $row['Status'] ?></td>
-            <td class="text-center"><button id="<?php echo $row['Id'] ?>" class="btn btn-info" data-toggle="modal" data-target="#exampleModal2"> <img src = "img/iconos/ojo.svg"></button></td>
+            <td class="text-center"><button id="openBtn" class="btn btn-info" data-toggle="modal" data-target="#modalDetallesPedido-<?php echo $row['Id']; ?>"> <img src = "img/iconos/ojo.svg"></button></td>
             <td class="text-center"><button id="<?php echo $row['Id'] ?>" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal"> <img src = "img/iconos/pencil.svg"></button></td>
+<!-- Modal -->
+<?php
+$link = new PDO('mysql:host=localhost;dbname=bduv', 'root', '');
+?>
+
+<div class="modal fade" id="modalDetallesPedido-<?php echo $row['Id']; ?>" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h3 class="modal-title">Detalles del Pedido</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Lista de Productos<h4>
+            
+                <?php foreach ($link->query('SELECT Pe.Id, PRO.Nombre AS NombreP, Con.Cantidad from Producto PRO, Contiene Con, Pedido Pe Where Pe.Id = Pe.Id and PRO.Id = Con.Id_Producto and Pe.Id = Con.Id_Pedido and Con.Id_Pedido = '.$row['Id']) as $row2){?>
+                <h4>Producto: <?php echo $row2['NombreP'] ?>    Cantidad: <?php echo $row2['Cantidad'] ?><h4>
+
+                <?php
+                    }
+                ?> 
+
+                <h4>Metodo de Pago: <?php echo $row['MethodPago'] ?><h4>
+                <h4>Total: <?php echo $row['Total'] ?><h4>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
         </tr>
+        
         <?php
 	        }
         ?>
         </table>
     </div>
-
-    <div class="modal" id="exampleModal2" tabindex="1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                 <div class="modal-header">
-                    <h5 class="modal-title">Detalles del Pedido</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-                <div class="modal-body">
-                    <span>HOLAAAAAAAAAAAAAAAAAAAAAA </span> <span id="modalId2"></span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar2</button>
-                    <button type="button"  id="RealizarCambios2" class="btn btn-success">Realizar Cambios2</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -414,8 +425,6 @@
     </div>   
     </div>   
     </div>
-      
-
         </div>
         <!-- end page-wrapper -->
 

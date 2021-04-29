@@ -327,73 +327,25 @@
 		    <tr>
                 <th class="table-dark text-center">Cliente</th>
 			    <th class="table-dark text-center">Folio</th>
-                <th class="table-dark text-center">Articulos</th>
 			    <th class="table-dark text-center">Fecha</th>
 			    <th class="table-dark text-center">Estatus</th>
-                <th class="table-dark text-center">Detalles del Pedido</th>
-                <th class="table-dark text-center">Modificar Estatus</th>
+                <th class="table-dark text-center">Ver Detalles</th>
 		    </tr>
 	    </thead>
         <?php foreach ($statement as $row){?> 
         <tr>
             <td class="text-center"><?php echo $row['Nombre'] ?></td>
 	        <td class="text-center"><?php echo $row['Id'] ?></td>
-            <td class="text-center"><?php echo "lista pendiente" ?></td>
             <td class="text-center"><?php echo $row['Fecha'] ?></td>
             <td class="text-center estatus"><?php echo $row['Status'] ?></td>
             <td class="text-center"><button id="detalles" type="button" class="btn btn-info"> <img src = "img/iconos/ojo.svg"></button></td>
-            <td class="text-center"><button id="<?php echo $row['Id'] ?>" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal"> <img src = "img/iconos/pencil.svg"></button></td>
+           
         </tr>
         <?php
 	        }
         ?>
         </table>
     </div>
-
-    <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                 <div class="modal-header">
-                    <h5 class="modal-title">Actualización de Estatus</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-                <div class="modal-body">
-                    <span>El pedido con el Folio </span> <span style="font-weight:bolder" id="modalId"></span>
-                    <span>se encuentra en la etapa " </span> <span style="font-weight:bolder" id="modalStatus"></span>
-                    <span>".¿Estás seguro de que quieres pasarlo a la siguiente etapa "Siguiente etapa"?</span> 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <button type="button"  id="RealizarCambios" class="btn btn-success">Realizar Cambios</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="errorModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                 <div class="modal-header">
-                    <h5 class="modal-title">Error modal</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-                <div class="modal-body">
-                    <span>Error</span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>    
-    </div>   
-    </div>   
-    </div>
-      
 
         </div>
         <!-- end page-wrapper -->
