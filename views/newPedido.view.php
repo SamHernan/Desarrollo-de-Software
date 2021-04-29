@@ -358,12 +358,11 @@ $link = new PDO('mysql:host=localhost;dbname=bduv', 'root', '');
                 <h4>Lista de Productos<h4>
             
                 <?php foreach ($link->query('SELECT Pe.Id, PRO.Nombre AS NombreP, Con.Cantidad from Producto PRO, Contiene Con, Pedido Pe Where Pe.Id = Pe.Id and PRO.Id = Con.Id_Producto and Pe.Id = Con.Id_Pedido and Con.Id_Pedido = '.$row['Id']) as $row2){?>
-                <h4>Producto: <?php echo $row2['NombreP'] ?>    Cantidad: <?php echo $row2['Cantidad'] ?><h4>
 
+                <h4>Producto: <?php echo $row2['NombreP'] ?>    Cantidad: <?php echo $row2['Cantidad'] ?><h4>
                 <?php
                     }
                 ?> 
-
                 <h4>Metodo de Pago: <?php echo $row['MethodPago'] ?><h4>
                 <h4>Total: <?php echo $row['Total'] ?><h4>
 
