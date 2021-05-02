@@ -9,7 +9,7 @@ if (isset($_SESSION['rol'])) {
 			header('location: empleado.php'); // si es empleado
 		break;
 		case 3:
-			header('location: index.php'); // si es usuario
+			header('location: index2.php'); // si es usuario
 		break;
 		default:
 	}
@@ -42,7 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $_SESSION['rol'] = $tipo; //creo la sesion y lo mando a su pagina
                     $_SESSION['Nombre'] = $resultado1['Nombre'];
                     $_SESSION['Taqui'] = $resultado1['Taqui_Puntos'];
-                    header('location: index.php');
+                    $_SESSION['ID_C'] = $resultado1['Id'];
+                    header('location: index2.php');
                 }else{
                     $errores = '<li>¡Password incorrecta!</li>';  
                 }

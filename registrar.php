@@ -44,8 +44,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 }
             }
         }catch(PDOException $ex){
-            //echo "Error:{$ex->getMessage()}"; //por si no se puede conectar
-            $errores = '<li>¡Error: El servidor se encuentra en reparación. Intentelo mas tarde!</li>';
+            echo "Error:{$ex->getMessage()}"; //por si no se puede conectar
+            //$errores = '<li>¡Error: El servidor se encuentra en reparación. Intentelo mas tarde!</li>';
         }  
     }else{ // si hay alguno vacio
         $errores = '<li>¡Existen Campos Vacios!</li>';

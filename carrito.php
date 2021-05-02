@@ -8,9 +8,6 @@
                 // ID
                 if (is_numeric( openssl_decrypt($_POST['productID'],COD,KEY))){
                     $ID=openssl_decrypt($_POST['productID'],COD,KEY);
-                    // $name=$_POST['ProductoName'];
-                    // $precio=$_POST['productPre'];
-                    // $cantidad=$_POST['productPre'];
                     $mensaje.='Id Correcto:'.$ID."<br>";
                 }else{
                     $mensaje.='Id incorrecto:'.$ID."<br>";
@@ -54,16 +51,55 @@
                     );
                     $_SESSION['CARRITO'][0]=$producto;
                 }else {
-                    $NumeroProductos=count($_SESSION['CARRITO']);
-                    $producto= array(
-                        'id'=> $ID,
-                        'nombre'=> $name,
-                        'precio'=> $precio,
-                        'cantidad'=> $cantidad
-                    );
-                    $_SESSION['CARRITO'][$NumeroProductos]=$producto;
+
+                    $idProductos=array_column($_SESSION['CARRITO'],"id");
+                    // if (array_search($ID,$idProductos)) {
+                    //     $_SESSION['CARRITO'][array_search($ID,$_SESSION['CARRITO'])]['cantidad']+$cantidad;
+                    $encontrado=null;
+                    if (in_array($ID,$idProductos)) {
+                        $encontrado=array_search($ID,$idProductos);
+                        $cant=$_SESSION['CARRITO'][$encontrado]['cantidad'];
+                        $_SESSION['CARRITO'][$encontrado]['cantidad']=$cant+$cantidad;
+                        echo "<script> alert('Producto repetido, se sumará cantidad'); </script>";
+
+                    }else {
+                        $NumeroProductos=count($_SESSION['CARRITO']);
+                        $producto= array(
+                            'id'=> $ID,
+                            'nombre'=> $name,
+                            'precio'=> $precio,
+                            'cantidad'=> $cantidad
+                        );
+                        $_SESSION['CARRITO'][$NumeroProductos]=$producto;
+                    }
                 }
-                $mensaje=print_r($_SESSION,true);
+            
+                echo'<script type="text/javascript">
+                        alert("Producto Agregado al carrito");
+                        window.location.href="index2.php";
+                    </script>';
+            break;
+
+            case "Eliminar":
+                if (is_numeric( openssl_decrypt($_POST['productID'],COD,KEY))){
+                    $ID=openssl_decrypt($_POST['productID'],COD,KEY);
+                    $mensaje.='Id Correcto:'.$ID."<br>";
+                    foreach($_SESSION['CARRITO'] as $indice=>$producto){
+                        if ($producto['id']==$ID) {
+                            unset($_SESSION['CARRITO'][$indice]);
+                            echo "<script> alert('Producto Eliminado...'); </script>";
+                        }
+                    }
+                }else{
+                    $mensaje.='Id incorrecto:'.$ID."<br>";
+                }
+            break;
+
+            case "local":
+                echo'<script type="text/javascript">
+                        alert("Local");
+                        window.location.href="entrega.php";
+                    </script>';
             break;
         }
     }

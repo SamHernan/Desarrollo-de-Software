@@ -1,32 +1,45 @@
 <?php
     include 'includes/database.php';
     include 'carrito.php';
-    // session_start();
-    // error_reporting(0);
+    error_reporting(0);
+  
     $id=$_GET['id'];
-    try{
-        $consulta= "SELECT * FROM producto Where Id= $id";
-        $consulta = mysqli_query($db, $consulta);
 
-        $productoC= [];
-        $row=mysqli_fetch_assoc($consulta);
-        $productoC[0]['Id'] = $row['Id'];
-        $productoC[0]['Nombre'] = $row['Nombre'];
-        $productoC[0]['Descripcion'] = $row['Descripcion'];
-        $productoC[0]['Categoria'] = $row['Categoria'];
-        $productoC[0]['Precio'] = $row['Precio'];
-        $productoC[0]['Existencia'] = $row['Existencia'];
-        $productoC[0]['Imagen'] = $row['Imagen'];
-
-    }catch (Throwable $thr){
-        var_dump($thr);  
+    if ($id!=''){
+        try{
+            $consulta= "SELECT * FROM producto Where Id= $id";
+            $consulta = @mysqli_query($db, $consulta);
+    
+            $productoC= [];
+            $row= @mysqli_fetch_assoc($consulta);
+            $productoC[0]['Id'] = $row['Id'];
+            $productoC[0]['Nombre'] = $row['Nombre'];
+            $productoC[0]['Descripcion'] = $row['Descripcion'];
+            $productoC[0]['Categoria'] = $row['Categoria'];
+            $productoC[0]['Precio'] = $row['Precio'];
+            $productoC[0]['Existencia'] = $row['Existencia'];
+            $productoC[0]['Imagen'] = $row['Imagen'];
+            if($productoC[0]['Existencia']==0 || $productoC[0]['Id']=='' ){
+                include 'error.php';
+                exit;
+            }
+    
+        }catch (Throwable $thr){
+            
+        }
+    }else {
+        
+        include 'error.php';
+        error_reporting(0);
+        exit;
     }
+    
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <head >
 
         <!-- Basic -->
         <meta charset="utf-8">
@@ -83,21 +96,19 @@
                                     </button>
                                     <div class="logo">
                                         <a class="navbar-brand js-scroll-trigger logo-header" href="#">
-                                            <img src="images/logo.png" alt="">
+                                            <img src="images/logo.png" alt="Logo" width="150" height="55">
                                         </a>
                                     </div>
                                 </div>
                                 <div id="navbar" class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li class="active"><a href="index.php">Home</a></li>
-                                        <li><a href="#about">About us</a></li>
-                                        <li><a href="#menu">Menu</a></li>
-                                        <li><a href="#our_team">Team</a></li>
-                                        <li><a href="#gallery">Gallery</a></li>
-                                        <!-- <li><a href="#blog">Blog</a></li>
-                                        <li><a href="#pricing">pricing</a></li>
-                                        <li><a href="#reservation">Reservaion</a></li>
-                                        <li><a href="#footer">Contacto</a></li> -->
+                                        <li class="active"><a href="index2.php">Home</a></li>
+                                        
+                                        <li><a href="#footer">Tienes  <?php echo $_SESSION['Taqui'];?> Taqui-Puntos</a></li>
+                                        <li><a href="mostrarCarrito.php">
+                                            Ver Carrito(<?php echo (empty($_SESSION['CARRITO']))?0: count($_SESSION['CARRITO']); ?>)</a>
+                                        </li>
+                                        <li><a href="logout.php">Cerrar Sesion</a></li>
                                     </ul>
                                 </div>
                                 <!-- end nav-collapse -->
@@ -134,8 +145,10 @@
                                 <?php echo($productoC[0]['Existencia']); 
                                     if($productoC[0]['Categoria']=='Carnes'){
                                         echo ' KG';
+                                    }else if($productoC[0]['Categoria']=='Tacos'){
+                                       echo ' Ordenes';
                                     }else{
-                                       echo ' Piezas';
+                                        echo ' Piezas';
                                     }
                                 ?>
                                 </h3>
