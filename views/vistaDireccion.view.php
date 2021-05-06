@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <?php
-<<<<<<< HEAD
 $id = $_SESSION['ID_C'];
-=======
-$id = $_SESSION['Id'];
->>>>>>> fa81b269fcf24e1ea92ee14b2b639d21de8905fd
 ?>
 <head>
     <meta charset="UTF-8">
@@ -25,11 +21,7 @@ $id = $_SESSION['Id'];
     <div class="container">
         <h1 class="text-center">Mis Direcciones</h1>
         <!-- Button trigger modal -->
-<<<<<<< HEAD
         <a type="button"  class="btn btn-success" href="index2.php">Home</a>
-=======
-        <a type="button"  class="btn btn-success" href="index.php">Home</a>
->>>>>>> fa81b269fcf24e1ea92ee14b2b639d21de8905fd
         <button type="button"  id="agregarDi" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregar">
         Agregar Dirección
         </button>
