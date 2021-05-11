@@ -17,7 +17,7 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <!-- Basic -->
@@ -87,14 +87,13 @@
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="active"><a href="#banner">Inicio</a></li>
-                                    
-                                    <li><a href="#footer"><?php echo $_SESSION['Taqui'];?> Taqui-Puntos</a></li>
+                                    <li><a href="#menu">Menu</a></li>
+                                    <li><a href="#"><?php echo $_SESSION['Taqui'];?> Taqui-Puntos</a></li>
+                                    <li><a href="pedidoCliente.php">Pedidos</a></li>
+                                    <li><a href="listarDirecciones.php">Direcciones</a></li>
                                     <li><a href="mostrarCarrito.php">
                                             Ver Carrito(<?php echo (empty($_SESSION['CARRITO']))?0: count($_SESSION['CARRITO']); ?>)</a>
                                     </li>
-                                    <li><a href="#about">Us</a></li>
-                                    <li><a href="#menu">Menu</a></li>
-                                    <li><a href="listarDirecciones.php">Direcciones</a></li>
                                     <li><a href="logout.php">Logout</a></li>
                                 </ul>
                             </div>
