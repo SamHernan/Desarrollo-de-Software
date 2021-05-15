@@ -1,4 +1,8 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+	<!-- Basic Page Info -->
 	<meta charset="utf-8">
 	<title>Taco UV</title>
 
@@ -30,19 +34,6 @@
 <!-- IMAGEN DE CARGA DE PAGINA -->
 
 <body>
-	<div class="pre-loader">
-	 	<div class="pre-loader-box">
-			<div class="loader-logo"><img src="vendors/img/login.gif" alt=""></div>
-			<div class='loader-progress' id="progress_div">
-				<div class='bar' id='bar1'></div>
-			</div>
-			<div class='percent' id='percent1'>90%</div>
-			<div class="loading-text">
-				Cargando...
-			</div>
-		</div>
-	</div>
-
 	<!-- PARTE SUPERIOR -->
 	<div class="header">
 		<div class="header-left">
@@ -129,7 +120,7 @@
 	<div class="left-side-bar">
 		<div class="brand-logo">
 
-			<a href="admin.php">
+			<a href="index.php">
 
 				<img src="vendors/img/logo-inicio.png" alt="" class="dark-logo">
 				<img src="vendors/img/logo-inicio.png" alt="" class="light-logo">
@@ -145,7 +136,7 @@
 						<div class="dropdown-divider"></div>
 					</li>
 					<li>
-						<a href="admin.php" class="dropdown-toggle no-arrow">
+						<a href="index.php" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-house-1"></span><span class="mtext">Inicio</span>
 						</a>
 					</li>
@@ -199,42 +190,27 @@
 	<div class="main-container">
 		<div class="pd-ltr-20 xs-pd-20-10">
 			<div class="min-height-200px">
-				<div class="page-header">
-					<div class="row">
-						<div class="col-md-6 col-sm-12">
-							<nav aria-label="breadcrumb" role="navigation">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Página Principal</li>
-								</ol>
-							</nav>
-						</div>
-					</div>
-				</div>
 				<div class="card-box pd-20 height-100-p mb-30">
 					<div class="row align-items-center">
 						<div class="col-md-4">
-							<img src="vendors/img/imagen 1.png" alt="">
+							<img src="vendors/img/ingresos.jpg" alt="">
 						</div>
 						<div class="col-md-8">
 							<h4 class="font-20 weight-500 mb-10 text-capitalize">
-								Bienvenido de Nuevo <div class="weight-600 font-30 text-blue">Administrador</div>
+								Reporte de Ingresos Diarios
 							</h4>
-							<p class="font-18 max-width-600">Estos apartados le permitirán tener una mejor gestión de la
-								administración de Taco UV, donde podrá encontrar diversas opciones, desde añadir productos al almacen, como
-								tener el control desde que se añade un producto, como de eliminarlos si nuestros clientes no han
-								consumido de alguno de ellos, para así mejorar nuestros índices de ventas; que de igual
-								forma podremos consultar mediante este sistema, como las ganancias que hayamos obtenido
-								y poder generar los reportes que necesitemos.
+							<p class="font-18 max-width-600">Para generar un reporte de ventas es necesario seleccionar 
+                            una fecha del dia que desea. Posteriormente haga clic en el siguiente boton.
 							</p>
+							<form action="obtenerReporte.php" method="POST" autocomple="off">
+							<span>Fecha :</span>
+							<input id="f" name="fecha" type="date" value="" min="2021-04-01">
+							<button type="submit"  id="RealizarCambios" class="btn btn-success">Generar</button>
+							
+							</form>
 						</div>
 					</div>
 				</div>
-				<div class="bg-white pd-20 card-box mb-30">
-					<h4 class="h4 text-blue">line Chart</h4>
-					<div id="chart1"></div>
-				</div>
-				
 			</div>
 		</div>
 	</div>
